@@ -55,6 +55,8 @@ async fn main() {
         add_person
             .or(query_persons)
             .or(get_person_info)
+            .or(download_file)
+            .or(handle_upload_file)
             .recover(handle_rejection)
             .with(cors),
     )
