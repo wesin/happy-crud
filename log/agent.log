@@ -1,2 +1,99 @@
 2022-03-24 11:34:28 INFO [warp::server] - Server::run; addr=0.0.0.0:82
 2022-03-24 11:34:28 INFO [warp::server] - listening on http://0.0.0.0:82
+2022-03-24 11:38:14 INFO [warp::server] - Server::run; addr=0.0.0.0:82
+2022-03-24 11:38:14 INFO [warp::server] - listening on http://0.0.0.0:82
+2022-03-24 11:40:23 DEBUG [hyper::proto::h1::io] - parsed 9 headers
+2022-03-24 11:40:23 DEBUG [hyper::proto::h1::conn] - incoming body is content-length (77 bytes)
+2022-03-24 11:40:23 DEBUG [hyper::proto::h1::conn] - incoming body completed
+2022-03-24 11:40:23 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 1.510ms
+2022-03-24 11:40:23 INFO [sqlx::query] - INSERT INTO "person" ("id", …; rows: 1, elapsed: 4.330ms
+
+INSERT INTO
+  "person" ("id", "name", "age", "desc")
+VALUES
+  ($1, $2, $3, $4) RETURNING "id",
+  "name",
+  "age",
+  "desc"
+
+2022-03-24 11:40:23 DEBUG [hyper::proto::h1::io] - flushed 240 bytes
+2022-03-24 11:40:23 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 532.600µs
+2022-03-24 11:41:07 DEBUG [hyper::proto::h1::io] - parsed 7 headers
+2022-03-24 11:41:07 DEBUG [hyper::proto::h1::conn] - incoming body is empty
+2022-03-24 11:41:07 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 1.257ms
+2022-03-24 11:41:07 INFO [sqlx::query] - SELECT "person"."id", "person"."name", "person"."age", …; rows: 1, elapsed: 4.099ms
+
+SELECT
+  "person"."id",
+  "person"."name",
+  "person"."age",
+  "person"."desc"
+FROM
+  "person"
+WHERE
+  "person"."id" = $1
+LIMIT
+  $2
+
+2022-03-24 11:41:07 DEBUG [hyper::proto::h1::io] - flushed 240 bytes
+2022-03-24 11:41:07 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 630.500µs
+2022-03-24 11:42:38 DEBUG [hyper::proto::h1::io] - parsed 9 headers
+2022-03-24 11:42:38 DEBUG [hyper::proto::h1::conn] - incoming body is content-length (102 bytes)
+2022-03-24 11:42:38 DEBUG [hyper::proto::h1::conn] - incoming body completed
+2022-03-24 11:42:38 DEBUG [warp::filters::body] - content-type "text/plain" doesn't match application/json
+2022-03-24 11:42:38 DEBUG [hyper::proto::h1::io] - flushed 150 bytes
+2022-03-24 11:42:41 DEBUG [hyper::proto::h1::io] - parsed 9 headers
+2022-03-24 11:42:41 DEBUG [hyper::proto::h1::conn] - incoming body is content-length (102 bytes)
+2022-03-24 11:42:41 DEBUG [hyper::proto::h1::conn] - incoming body completed
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 1.012ms
+2022-03-24 11:42:41 INFO [sqlx::query] - SELECT "person"."id", "person"."name", "person"."age", …; rows: 1, elapsed: 3.927ms
+
+SELECT
+  "person"."id",
+  "person"."name",
+  "person"."age",
+  "person"."desc"
+FROM
+  "person"
+WHERE
+  "person"."name" LIKE $1
+LIMIT
+  $2 OFFSET $3
+
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 981.000µs
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 1.224ms
+2022-03-24 11:42:41 INFO [sqlx::query] - SELECT "person"."id", "person"."name", "person"."age", …; rows: 0, elapsed: 3.029ms
+
+SELECT
+  "person"."id",
+  "person"."name",
+  "person"."age",
+  "person"."desc"
+FROM
+  "person"
+WHERE
+  "person"."name" LIKE $1
+LIMIT
+  $2 OFFSET $3
+
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 651.500µs
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 937.600µs
+2022-03-24 11:42:41 INFO [sqlx::query] - SELECT COUNT(*) AS num_items …; rows: 1, elapsed: 2.929ms
+
+SELECT
+  COUNT(*) AS num_items
+FROM
+  (
+    SELECT
+      "person"."id",
+      "person"."name",
+      "person"."age",
+      "person"."desc"
+    FROM
+      "person"
+    WHERE
+      "person"."name" LIKE $1
+  ) AS "sub_query"
+
+2022-03-24 11:42:41 DEBUG [hyper::proto::h1::io] - flushed 279 bytes
+2022-03-24 11:42:41 INFO [sqlx::query] - /* SQLx ping */; rows: 0, elapsed: 569.800µs
