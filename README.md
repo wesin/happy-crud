@@ -29,6 +29,7 @@ https://github.com/wesin/harry-crud.git
 - warp web 框架
 - sea-orm orm 数据库框架
 - sea-orm-cli 运行项目的 build.bat 自动生成 sea-orm 对应的数据库操作类。
+- 文件上传下载
 - 问号在 warp crud 代码中的使用，简化 match 错误处理代码
 
 ## 怎么玩
