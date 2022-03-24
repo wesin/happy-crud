@@ -1,0 +1,24 @@
+[package]
+name = "happy-crud"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.17.0", features = ["full"] }
+warp = "0.3.2"
+futures = "0.3.21"
+sea-orm = {version = "0.6.0", features = ["runtime-tokio-rustls", "sqlx-all"]}
+sqlx = "0.5.11"
+serde = "1.0.136"
+anyhow = "1.0.56"
+once_cell = "1.10.0"
+uuid = "0.8.2"
+log = "0.4.14"
+log4rs = "1.0.0"
+serde_json = "1.0.79"
+thiserror = "1.0.30"
+config = { version = "0.12.0", features = ["toml"], default-features = false }
+num_enum = "0.5.7"
+md5 = "0.7.0"

@@ -1,0 +1,9 @@
+[http]
+address = "0.0.0.0:82"
+
+[database]
+database_url = "postgres://{用户名}:{密码}@{ip}/happy_crud"
+min_connections = 8
+max_connections = 128
+connect_timeout_seconds = 30
+idle_timeout_seconds = 60

@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "89a8edba-1cf9-4317-abd7-bac56f8eb2be",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add_person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"wesin\",\r\n    \"age\": 18,\r\n    \"desc\":\"帅气程序员哥哥\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}\\add_person",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"add_person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_person_info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/get_person_info?person_id=adbe15ea-7de9-4574-9fc4-238b20b07ddc",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"get_person_info"
+					],
+					"query": [
+						{
+							"key": "person_id",
+							"value": "adbe15ea-7de9-4574-9fc4-238b20b07ddc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query_persons",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"item\": {\"name\":\"w\"},\r\n    \"page_index\": 0,\r\n    \"page_size\": 10,\r\n    \"get_all_count\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/query_persons",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"query_persons"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

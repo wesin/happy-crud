@@ -1,0 +1,1 @@
+sea-orm-cli generate entity --database-url postgres://{用户名}:{密码}@{ip}/happy_crud --output-dir src/entity
