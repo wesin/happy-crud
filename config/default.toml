@@ -7,3 +7,6 @@ min_connections = 8
 max_connections = 128
 connect_timeout_seconds = 30
 idle_timeout_seconds = 60
+
+[bundle]
+path = "G:\\bundles"

@@ -1,5 +1,9 @@
 use crate::config::get_config;
-use server::db_center::init_db;
+use model::file::FileUploadDO;
+use server::{
+    db_center::init_db,
+    file::{download_file, handle_upload_file},
+};
 use std::{collections::HashMap, net::ToSocketAddrs};
 use utils::ws_error::handle_rejection;
 
@@ -38,6 +42,15 @@ async fn main() {
         .and(warp::path("get_person_info"))
         .and(warp::query::<HashMap<String, String>>())
         .and_then(get_person_info);
+    let download_file = warp::get()
+        .and(warp::path("download_file"))
+        .and(warp::query::<HashMap<String, String>>())
+        .and_then(download_file);
+    let handle_upload_file = warp::post()
+        .and(warp::path("handle_upload_bundle"))
+        .and(warp::query::<FileUploadDO>())
+        .and(warp::body::stream())
+        .and_then(handle_upload_file);
     warp::serve(
         add_person
             .or(query_persons)

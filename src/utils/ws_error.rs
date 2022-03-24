@@ -6,6 +6,7 @@ use sea_orm::DbErr;
 use serde::Serialize;
 use thiserror::Error;
 use warp::{http::*, reject, Rejection, Reply};
+use zip::result::ZipError;
 
 #[derive(Debug, Error)]
 pub enum WSError {
@@ -19,6 +20,8 @@ pub enum WSError {
     FileError(std::io::Error),
     #[error("json error: [{0}]")]
     JsonError(serde_json::error::Error),
+    #[error("zip error: [{0}]")]
+    ZIPError(ZipError),
 }
 
 impl WSError {
@@ -35,6 +38,7 @@ impl WSError {
             WSError::Error(code, _) => code.clone(),
             WSError::SqlError(_) => 1100,
             WSError::FileError(_) => 1200,
+            WSError::ZIPError(_) => 1201,
             WSError::JsonError(_) => 1202,
         }
     }

@@ -1,4 +1,4 @@
-use config::{Config, ConfigError, File};
+use config::{Config, File};
 use once_cell::sync::OnceCell;
 use serde::Deserialize;
 
@@ -17,11 +17,18 @@ pub struct HttpConfig {
 }
 
 #[derive(Debug, Default, Deserialize)]
+pub struct BundleConfig {
+    pub path: String,
+}
+
+#[derive(Debug, Default, Deserialize)]
 pub struct AppConfig {
     #[serde(default)]
     pub database: DatabaseConfig,
     #[serde(default)]
     pub http: HttpConfig,
+    #[serde(default)]
+    pub bundle: BundleConfig,
 }
 
 impl AppConfig {

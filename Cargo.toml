@@ -22,3 +22,5 @@ thiserror = "1.0.30"
 config = { version = "0.12.0", features = ["toml"], default-features = false }
 num_enum = "0.5.7"
 md5 = "0.7.0"
+zip = "0.6.0"
+zip-extensions = "0.6.1"
